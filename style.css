@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: roboto; /* Default: font biasa */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#020238,#0097EB);
+}
+
+.card {
+    width: 400px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Judul dengan font Tangerine */
+.judul {
+    font-family: 'Tangerine', cursive;
+    color: #2c3e50;
+    font-size: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.teks-angka {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Teks biasa menggunakan font sans-serif */
+.teks-biasa {
+    font-size: 24px;
+    color: #555;
+    font-family: roboto;
+}
+
+.credit {
+    font-size: 11px;
+    color: #777;
+    position: absolute;
+    font-family: Arial, sans-serif;
+}
+
+.mosque {
+    width: 100px; /* Atur sesuai kebutuhan */
+    height: 100px; /* Pastikan lebar dan tinggi sama agar sempurna bulat */
+    border-radius: 50%; /* Membuat gambar bulat */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+}
+
+
+/* Gambar Masjid */
+ .masjid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            background: url('masjid.png');
+            background-repeat: repeat-x;
+            background-size: 1200px;
+            z-index: 1;
+            pointer-events: none;
+            animation: gerakMasjid 20s linear infinite;
+        }
+        @keyframes gerakMasjid {
+            0% { background-position: 0px; }
+            100% { background-position: 1200px; }
+        }
+
+        /* Efek lapisan kedua masjid */
+        .masjid::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 550px;
+            background: url('masjid.png');
+            background-repeat: repeat-x;
+            background-size: 1600px;
+            opacity: 0.3;
+            animation: gerakMasjidLambat 40s linear infinite;
+        }
+        @keyframes gerakMasjidLambat {
+            0% { background-position: 1600px; }
+            100% { background-position: 0px; }
+        }
+
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* Lapisan di antara masjid dan kartu */
+    opacity: 3; /* Transparansi efek kembang api */
+}
